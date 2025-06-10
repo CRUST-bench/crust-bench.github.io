@@ -11,7 +11,7 @@ export default function Blog() {
       <div className="mb-8">
         <figure>
           <img src="../assets/CRUST-bench.png" className="w-full h-auto" />
-        </figure>
+        </figure> 
       </div>
 
       <div>
