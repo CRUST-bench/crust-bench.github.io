@@ -85,7 +85,7 @@ export default function Page() {
                     <br></br>The benchmark covers both single file projects and multifile projects. 
                     We collected data from 100 Github repositories, spanning various domains like:
                 </p>
-                <ul class="leading-normal list-disc list-inside ml-4">
+                <ul className="leading-normal list-disc list-inside ml-4">
                   <li>System utilities</li>
                   <li>Algorithms</li>
                   <li>Programming Language Infrastructure</li>
