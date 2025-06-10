@@ -42,7 +42,7 @@ export default function Page() {
             >
               ARXIV
               <Image
-                src="/arxiv-logomark-small.svg"
+                src="./arxiv-logomark-small.svg"
                 className="mx-1"
                 alt="arxiv"
                 width="10"
