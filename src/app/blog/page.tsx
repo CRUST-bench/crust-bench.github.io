@@ -32,7 +32,7 @@ export default function Blog() {
         </h2>
         <div className="space-y-6">
           <p className="leading-normal">
-            The goal of C-to-Rust translation extends beyond mere functional equivalence; it involves a fundamental shift from C's non-memory-safe semantics to the memory-safe, idiomatic patterns of Rust.  While Rust supports `unsafe` code, the primary benefit of migration is to produce code that leverages Rust's compile-time safety guarantees, which can eliminate entire classes of memory bugs.  This requires more than a simple syntactic conversion.
+            The goal of C-to-Rust translation extends beyond mere functional equivalence; it involves a fundamental shift from C&apos;s non-memory-safe semantics to the memory-safe, idiomatic patterns of Rust.  While Rust supports `unsafe` code, the primary benefit of migration is to produce code that leverages Rust &apos;s compile-time safety guarantees, which can eliminate entire classes of memory bugs.  This requires more than a simple syntactic conversion.
           </p>
 
           <div className="my-8 flex justify-center">
@@ -44,14 +44,14 @@ export default function Blog() {
             </figure>
           </div>
           <div>
-            <p text="CRUST-Bench is designed to test this deep translation capability. A successful transpilation must produce Rust code that not only compiles without errors but also conforms to a predefined, idiomatic Rust interface and passes a suite of functional tests.  As the figure above shows, this involves complex challenges like converting raw C pointers into safe, structured types like `Vec<u8>` and handling Rust's strict borrowing and ownership rules. "/>
+            <p text="CRUST-Bench is designed to test this deep translation capability. A successful transpilation must produce Rust code that not only compiles without errors but also conforms to a predefined, idiomatic Rust interface and passes a suite of functional tests.  As the figure above shows, this involves complex challenges like converting raw C pointers into safe, structured types like `Vec<u8>` and handling Rust &apos;s strict borrowing and ownership rules. "/>
           </div>
           <div className="space-y-6">
           <h2 className="font-bold text-2xl tracking-tight">
             Inside the CRUST-Bench Benchmark
           </h2>
           <p className="leading-normal">
-            Our benchmark contains 100 real-world C projects sourced from GitHub, with an average size of 958 lines of code, making them complex yet manageable for today's LLMs.  The projects span a diverse range of domains, including programming language infrastructure, data structures, system utilities, and networking. 
+            Our benchmark contains 100 real-world C projects sourced from GitHub, with an average size of 958 lines of code, making them complex yet manageable for today &apos;s LLMs.  The projects span a diverse range of domains, including programming language infrastructure, data structures, system utilities, and networking. 
           </p>
           <div className="leading-normal">
             Each of the 100 instances in CRUST-Bench includes:
@@ -76,10 +76,10 @@ export default function Blog() {
             We evaluated 8 frontier large language models on CRUST-Bench and found that C-to-safe-Rust transpilation remains a significant challenge. 
           </p>
           <p className="leading-normal">
-            In a single-shot setting, performance is low across the board. The best-performing model, OpenAI's o1, correctly solved only 15% of the tasks.  Performance improves substantially with iterative self-repair.  When provided with compiler and test-failure feedback, the success rate for o1 increases to 37%.  Similarly, Claude 3.7 Sonnet's performance improves from 13% to 32% with a test-based repair strategy. 
+            In a single-shot setting, performance is low across the board. The best-performing model, OpenAI &apos;s o1, correctly solved only 15% of the tasks.  Performance improves substantially with iterative self-repair.  When provided with compiler and test-failure feedback, the success rate for o1 increases to 37%.  Similarly, Claude 3.7 Sonnet &apos;s performance improves from 13% to 32% with a test-based repair strategy. 
           </p>
           <p className="leading-normal">
-            Our error analysis shows that models struggle most with Rust's strict static guarantees.  The most common errors are type mismatches and violations of Rust's ownership and borrowing rules.  Another frequent issue is the generation of incomplete code, often due to model token limits, which results in unimplemented functions. 
+            Our error analysis shows that models struggle most with Rust &apos;s strict static guarantees.  The most common errors are type mismatches and violations of Rust &apos;s ownership and borrowing rules.  Another frequent issue is the generation of incomplete code, often due to model token limits, which results in unimplemented functions. 
           </p>
         </div>
         </div>
