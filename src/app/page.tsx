@@ -77,7 +77,7 @@ export default function Page() {
                 <p className="leading-normal">
                   <span className="aggrefact">CRUST-bench</span> is a
                     project-level evaluation benchmark. It contains 100 C repositories with
-                    human annotated <u>(interface, test-cases)</u> tuples. A
+                    human annotated (interface, test-cases) tuples. A
                     transpilation technique is expected to follow the interface when translating the C code to Rust and pass the test-cases defined in Rust.
                 </p>
 
