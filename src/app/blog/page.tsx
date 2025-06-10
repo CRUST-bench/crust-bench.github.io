@@ -43,8 +43,10 @@ export default function Blog() {
               </figcaption>
             </figure>
           </div>
-          <div>
-            <p text="CRUST-Bench is designed to test this deep translation capability. A successful transpilation must produce Rust code that not only compiles without errors but also conforms to a predefined, idiomatic Rust interface and passes a suite of functional tests.  As the figure above shows, this involves complex challenges like converting raw C pointers into safe, structured types like `Vec<u8>` and handling Rust &apos;s strict borrowing and ownership rules. "/>
+          <div className="space-y-6">
+            <p className="leading-normal">
+              CRUST-Bench is designed to test this deep translation capability. A successful transpilation must produce Rust code that not only compiles without errors but also conforms to a predefined, idiomatic Rust interface and passes a suite of functional tests.  As the figure above shows, this involves complex challenges like converting raw C pointers into safe, structured types like Vec&lt;u8&gt; and handling Rust &apos;s strict borrowing and ownership rules.
+            </p>
           </div>
           <div className="space-y-6">
           <h2 className="font-bold text-2xl tracking-tight">
