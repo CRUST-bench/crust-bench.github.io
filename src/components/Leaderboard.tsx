@@ -51,8 +51,8 @@ const TableComponent: React.FC<TableComponentProps> = ({ data }) => (
       <TableRow>
         <TableHead rowSpan={2} className="align-bottom">Model</TableHead>
         <TableHead colSpan={2} className="text-center border-b">Pass@1</TableHead>
-        <TableHead colSpan={2} className="text-center border-b">Pass@1 + Compiler repair (r=3)</TableHead>
-        <TableHead colSpan={2} className="text-center border-b">Pass@1 + Test repair (r=3)</TableHead>
+        <TableHead colSpan={2} className="text-center border-b">Compiler repair</TableHead>
+        <TableHead colSpan={2} className="text-center border-b">Test repair</TableHead>
       </TableRow>
       {/* Second header row with specific sub-columns */}
       <TableRow>
