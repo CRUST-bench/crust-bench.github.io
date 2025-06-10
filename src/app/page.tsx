@@ -116,7 +116,7 @@ export default function Page() {
               <div className="grid grid-cols-4 auto-rows-auto gap-x-4 gap-y-8">
                 <div className="flex flex-col items-center">
                   <Image
-                    src="/assets/anirudh.jpg"
+                    src="./assets/anirudh.jpg"
                     alt="Anirudh Khatry"
                     width={128}
                     height={128}
