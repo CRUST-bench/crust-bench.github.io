@@ -10,7 +10,7 @@ export default function Blog() {
 
       <div className="mb-8">
         <figure>
-          <img src="/assets/CRUST-bench.png" className="w-full h-auto" />
+          <img src="./assets/CRUST-bench.png" className="w-full h-auto" />
         </figure>
       </div>
 
@@ -37,7 +37,7 @@ export default function Blog() {
 
           <div className="my-8 flex justify-center">
             <figure className="w-full max-w-2xl">
-              <img src="/assets/CRUST-bench-pipeline.png" className="w-full h-auto" />
+              <img src="./assets/CRUST-bench-pipeline.png" className="w-full h-auto" />
               <figcaption className="text-center text-sm mt-2 text-gray-600">
                 An example from CRUST-Bench, illustrating the C source, the target Rust interface, and the expected Rust implementation.  The task requires translating low-level C pointer operations into safe Rust abstractions. 
               </figcaption>

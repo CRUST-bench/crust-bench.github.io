@@ -137,7 +137,7 @@ export default function Page() {
 
                 <div className="flex flex-col items-center">
                   <Image
-                    src="/assets/robert.jpg"
+                    src="./assets/robert.jpg"
                     alt="Robert Zhang"
                     width={128}
                     height={128}
@@ -158,7 +158,7 @@ export default function Page() {
 
                 <div className="flex flex-col items-center">
                   <Image
-                    src="/assets/tony_pan.jpg"
+                    src="./assets/tony_pan.jpg"
                     alt="Jia Pan"
                     width={128}
                     height={128}
@@ -179,7 +179,7 @@ export default function Page() {
 
                 <div className="flex flex-col items-center">
                   <Image
-                    src="/assets/zettenwang.png"
+                    src="./assets/zettenwang.png"
                     alt="Ziteng Wang"
                     width={128}
                     height={128}
@@ -200,7 +200,7 @@ export default function Page() {
                 
                 <div className="flex flex-col items-center">
                   <Image
-                    src="/assets/jocelyn.jpg"
+                    src="./assets/jocelyn.jpg"
                     alt="Jocelyn Chen"
                     width={128}
                     height={128}
@@ -221,7 +221,7 @@ export default function Page() {
                 
                 <div className="flex flex-col items-center">
                   <Image
-                    src="/assets/greg.png"
+                    src="./assets/greg.png"
                     alt="Greg Durrett"
                     width={128}
                     height={128}
@@ -242,7 +242,7 @@ export default function Page() {
 
                 <div className="flex flex-col items-center">
                   <Image
-                    src="/assets/isil.jpg"
+                    src="./assets/isil.jpg"
                     alt="Isil Dillig"
                     width={128}
                     height={128}
