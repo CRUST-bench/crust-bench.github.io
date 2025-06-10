@@ -2,6 +2,9 @@
 const nextConfig = {
   output: 'export', // This line tells Next.js to export your application as static HTML
   // You can add other Next.js configurations here if needed
+  images: {
+    unoptimized: true,
+  },
 };
 
 module.exports = nextConfig;
