@@ -40,6 +40,9 @@ interface LeaderboardProps {
 export default function Leaderboard({ scoresData }: LeaderboardProps) {
   return (
     <div className="flex flex-col items-stretch p-4 space-y-6">
+      <div className="text-center text-sm text-muted-foreground mt-2">
+      Comparison of test success rates across different repair strategies.
+      </div>
       <TestResultsBarChart data={scoresData} />
       <TableComponent data={scoresData} />
     </div>
