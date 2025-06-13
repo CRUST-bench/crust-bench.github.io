@@ -2,6 +2,15 @@ import { ModelData } from "@/components/Leaderboard";
 
 export const scoresData: ModelData[] = [
     {
+        model: "o3", // Or a more current o1 model
+        pass1_build: 35,
+        pass1_test: 19,
+        compiler_repair_build: 68,
+        compiler_repair_test: 31,
+        test_repair_build: 68,
+        test_repair_test: 31,
+    }, 
+    {
         model: "o1-preview-2024-09-12", // Or a more current o1 model
         pass1_build: 32,
         pass1_test: 15,
