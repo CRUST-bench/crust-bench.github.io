@@ -96,7 +96,10 @@ const TableComponent: React.FC<TableComponentProps> = ({ data }) => (
 );
 
 const getShortName = (fullName: string) => {
-  if (fullName.startsWith("Adapted")){
+  if (fullName.startsWith("o1-mini")){
+    return "o1-mini";
+  }
+  else if (fullName.startsWith("Adapted")){
     return "SWE-agent";
   }
   else if (fullName.startsWith("arcee-ai/Virtuoso")){
