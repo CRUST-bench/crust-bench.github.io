@@ -110,10 +110,10 @@ const getShortName = (fullName: string) => {
             + fullName.split(/[-_ ]/)[1]; // splits by dash, underscore, or space
   }
   else if (fullName.startsWith("gpt")){
-    return "gpt4o";
+    return "gpt-4o";
   }
   else if (fullName.startsWith("gemini")){
-    return "gemini1.5pro";
+    return "gemini-1.5-pro";
   }
   return fullName.split(/[-_ ]/)[0]; // splits by dash, underscore, or space
 };
