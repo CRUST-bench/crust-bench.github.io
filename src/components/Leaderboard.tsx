@@ -103,7 +103,7 @@ const getShortName = (fullName: string) => {
     return "SWE-agent";
   }
   else if (fullName.startsWith("arcee-ai/Virtuoso")){
-    return "distil-v3";
+    return "Virtuoso-Medium-v2";
   }
   else if (fullName.startsWith("claude")){
     return fullName.split(/[-_ ]/)[0] 
@@ -115,6 +115,9 @@ const getShortName = (fullName: string) => {
   }
   else if (fullName.startsWith("gemini")){
     return "gemini-1.5-pro";
+  }
+  else if (fullName.startsWith("Qwen")){
+    return "QwQ-32B-Preview";
   }
   return fullName.split(/[-_ ]/)[0]; // splits by dash, underscore, or space
 };
