@@ -115,6 +115,10 @@ const getShortName = (fullName: string) => {
   return fullName.split(/[-_ ]/)[0]; // splits by dash, underscore, or space
 };
 
+interface TestResultsBarChartProps {
+  data: ModelData;
+}
+
 const TestResultsBarChart: React.FC<TestResultsBarChartProps> = ({ data }) => {
   const chartData = data.map((item) => ({
     model: getShortName(item.model),
