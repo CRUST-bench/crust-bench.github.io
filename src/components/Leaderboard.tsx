@@ -10,8 +10,17 @@ import {
 } from "@/components/ui/table";
 import Link from "next/link";
 import React from "react";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+  CartesianGrid,
+} from "recharts";
 
-// The ModelData interface now matches the structure of your updated data file
 export interface ModelData {
   model: string;
   pass1_build: number | string;
@@ -29,12 +38,10 @@ interface LeaderboardProps {
 }
 
 export default function Leaderboard({ scoresData }: LeaderboardProps) {
-  // The component is now simplified to just pass the data to the table
   return (
-    <div className="flex flex-col items-stretch p-4">
-      <div className="mb-4">
-        <TableComponent data={scoresData} />
-      </div>
+    <div className="flex flex-col items-stretch p-4 space-y-6">
+      <TestResultsBarChart data={scoresData} />
+      <TableComponent data={scoresData} />
     </div>
   );
 }
@@ -43,18 +50,15 @@ interface TableComponentProps {
   data: ModelData[];
 }
 
-// The TableComponent is rebuilt for the new data structure
 const TableComponent: React.FC<TableComponentProps> = ({ data }) => (
   <Table>
     <TableHeader>
-      {/* First header row with column groups */}
       <TableRow>
         <TableHead rowSpan={2} className="align-bottom">Model</TableHead>
         <TableHead colSpan={2} className="text-center border-b">Pass@1</TableHead>
         <TableHead colSpan={2} className="text-center border-b">Compiler repair</TableHead>
         <TableHead colSpan={2} className="text-center border-b">Test repair</TableHead>
       </TableRow>
-      {/* Second header row with specific sub-columns */}
       <TableRow>
         <TableHead className="text-center">Build</TableHead>
         <TableHead className="text-center">Test</TableHead>
@@ -67,17 +71,16 @@ const TableComponent: React.FC<TableComponentProps> = ({ data }) => (
     <TableBody>
       {data.map((item) => (
         <TableRow
-            key={item.model}
-            // Applies a dotted top border for the special 'Adapted' row
-            className={item.is_adapted ? "border-t-2 border-dotted" : ""}
+          key={item.model}
+          className={item.is_adapted ? "border-t-2 border-dotted" : ""}
         >
           <TableCell className="font-medium">
             {item.link ? (
-                <Link href={item.link} target="_blank" className="text-primary custom-link">
-                    {item.model}
-                </Link>
+              <Link href={item.link} target="_blank" className="text-primary custom-link">
+                {item.model}
+              </Link>
             ) : (
-                item.model
+              item.model
             )}
           </TableCell>
           <TableCell className="text-center">{item.pass1_build}</TableCell>
@@ -91,3 +94,55 @@ const TableComponent: React.FC<TableComponentProps> = ({ data }) => (
     </TableBody>
   </Table>
 );
+
+const getShortName = (fullName: string) => {
+  if (fullName.startsWith("Adapted")){
+    return "SWE-agent";
+  }
+  else if (fullName.startsWith("arcee-ai/Virtuoso")){
+    return "distil-v3";
+  }
+  else if (fullName.startsWith("claude")){
+    return fullName.split(/[-_ ]/)[0] 
+            + fullName.split(/[-_ ]/)[1]; // splits by dash, underscore, or space
+  }
+  else if (fullName.startsWith("gpt")){
+    return "gpt4o";
+  }
+  else if (fullName.startsWith("gemini")){
+    return "gemini1.5pro";
+  }
+  return fullName.split(/[-_ ]/)[0]; // splits by dash, underscore, or space
+};
+
+const TestResultsBarChart: React.FC<TestResultsBarChartProps> = ({ data }) => {
+  const chartData = data.map((item) => ({
+    model: getShortName(item.model),
+    pass1_test: Number(item.pass1_test) || 0,
+    compiler_repair_test: Number(item.compiler_repair_test) || 0,
+    test_repair_test: Number(item.test_repair_test) || 0,
+  }));
+
+  return (
+    <div className="w-full h-96">
+      <ResponsiveContainer width="100%" height="100%">
+        <BarChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis
+            dataKey="model"
+            angle={-30}
+            textAnchor="end"
+            interval={0}
+            height={100}
+          />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Bar dataKey="pass1_test" name="Pass@1" fill="#8884d8" />
+          <Bar dataKey="compiler_repair_test" name="Compiler Repair" fill="#82ca9d" />
+          <Bar dataKey="test_repair_test" name="Test Repair" fill="#ffc658" />
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
+  );
+};

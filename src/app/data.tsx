@@ -20,7 +20,7 @@ export const scoresData: ModelData[] = [
         test_repair_test: 37,
     },
     {
-        model: "claude-3-7-sonnet-20250219",
+        model: "claude-3.7-sonnet-20250219",
         pass1_build: 26,
         pass1_test: 13,
         compiler_repair_build: 54,
