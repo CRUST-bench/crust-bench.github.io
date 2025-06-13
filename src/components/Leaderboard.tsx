@@ -107,7 +107,8 @@ const getShortName = (fullName: string) => {
   }
   else if (fullName.startsWith("claude")){
     return fullName.split(/[-_ ]/)[0] 
-            + fullName.split(/[-_ ]/)[1]; // splits by dash, underscore, or space
+      + "-" 
+      + fullName.split(/[-_ ]/)[1]; // splits by dash, underscore, or space
   }
   else if (fullName.startsWith("gpt")){
     return "gpt-4o";
