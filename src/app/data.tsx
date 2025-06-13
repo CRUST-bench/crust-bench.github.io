@@ -2,7 +2,7 @@ import { ModelData } from "@/components/Leaderboard";
 
 export const scoresData: ModelData[] = [
     {
-        model: "o3", // Or a more current o1 model
+        model: "o3-2025-04-16", // Or a more current o3 model
         pass1_build: 35,
         pass1_test: 19,
         compiler_repair_build: 68,
