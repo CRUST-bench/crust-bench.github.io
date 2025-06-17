@@ -22,6 +22,8 @@ import {
   Cell,
 } from "recharts";
 
+import type { Payload } from "recharts/types/component/DefaultLegendContent";
+
 export interface ModelData {
   model: string;
   pass1_build: number | string;
@@ -141,7 +143,7 @@ const TestResultsBarChart: React.FC<TableComponentProps> = ({ data }) => {
     default_test: "#ffc658",
     swe_agent: "#ff7300", // A distinct color for SWE-agent
   };
-   const customLegendPayload = [
+   const customLegendPayload: Payload[] = [
     { value: 'Pass@1', type: 'square', id: 'pass1', color: COLORS.default_pass1 },
     { value: 'Compiler Repair', type: 'square', id: 'compiler', color: COLORS.default_compiler },
     { value: 'Test Repair', type: 'square', id: 'test', color: COLORS.default_test },
