@@ -100,13 +100,13 @@ const TableComponent: React.FC<TableComponentProps> = ({ data }) => (
     </TableBody>
   </Table>
 );
-
+const SWE_AGENT = "SWE-agent (Claude-3.7)"
 const getShortName = (fullName: string) => {
   if (fullName.startsWith("o1-mini")){
     return "o1-mini";
   }
   else if (fullName.startsWith("Adapted")){
-    return "SWE-agent";
+    return SWE_AGENT;
   }
   else if (fullName.startsWith("arcee-ai/Virtuoso")){
     return "Virtuoso-Medium-v2";
@@ -147,13 +147,64 @@ const TestResultsBarChart: React.FC<TableComponentProps> = ({ data }) => {
     { value: 'Pass@1', type: 'square', id: 'pass1', color: COLORS.default_pass1 },
     { value: 'Compiler Repair', type: 'square', id: 'compiler', color: COLORS.default_compiler },
     { value: 'Test Repair', type: 'square', id: 'test', color: COLORS.default_test },
-    { value: 'SWE-agent', type: 'square', id: 'swe_agent', color: COLORS.swe_agent },
+    { value: SWE_AGENT, type: 'square', id: 'swe_agent', color: COLORS.swe_agent },
   ];
+
+  // Custom Tooltip Formatter
+  const CustomTooltip = ({
+  active,
+  payload,
+  label,
+}: TooltipProps<ValueType, NameType>) => {
+  if (active && payload && payload.length) {
+    const modelName = label; // The label is typically the XAxis dataKey, which is the model name
+    const isSweAgent = modelName === SWE_AGENT;
+
+    return (
+      <div
+        className="custom-tooltip"
+        style={{
+          backgroundColor: "#fff",
+          border: "1px solid #ccc",
+          padding: "10px",
+        }}
+      >
+        <p className="label">{`${label}`}</p>
+        {payload.map((entry, index) => {
+          // Only render the entry if it's not SWE-agent, or if it's SWE-agent and the dataKey is pass1_test
+          if (
+            !isSweAgent ||
+            (isSweAgent && entry.dataKey === "pass1_test")
+          ) {
+            if (isSweAgent && entry.dataKey === "pass1_test"){
+              return (
+                <p key={`item-${index}`} style={{ color: entry.color }}>
+                  {`SWE Pass Rate : ${entry.value}`}
+                </p>
+              )
+            } 
+            return (
+              <p key={`item-${index}`} style={{ color: entry.color }}>
+                {`${entry.name} : ${entry.value}`}
+              </p>
+            );
+          }
+          return null;
+        })}
+      </div>
+    );
+  }
+
+  return null;
+};
 
   return (
     <div className="w-full h-96">
       <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+        <BarChart
+          data={chartData}
+          margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+        >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis
             dataKey="model"
@@ -163,22 +214,40 @@ const TestResultsBarChart: React.FC<TableComponentProps> = ({ data }) => {
             height={100}
           />
           <YAxis />
-          <Tooltip />
+          {/* Use the custom content component for the Tooltip */}
+          <Tooltip content={<CustomTooltip />} />
           <Legend payload={customLegendPayload} />
+
+          {/* Bar for Pass@1 */}
           <Bar dataKey="pass1_test" name="Pass@1">
             {chartData.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={entry.model === 'SWE-agent' ? COLORS.swe_agent : COLORS.default_pass1} />
+              <Cell
+                key={`cell-pass1-${index}`}
+                fill={
+                  entry.model === SWE_AGENT
+                    ? COLORS.swe_agent
+                    : COLORS.default_pass1
+                }
+              />
             ))}
           </Bar>
+
+          {/* Conditional Bars for Compiler Repair and Test Repair */}
           <Bar dataKey="compiler_repair_test" name="Compiler Repair">
-            {chartData.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={entry.model === 'SWE-agent' ? COLORS.swe_agent : COLORS.default_compiler} />
-            ))}
+            {chartData.map((entry, index) =>
+              // Render the bar only if the model is NOT 'SWE-agent'
+              entry.model !== SWE_AGENT ? (
+                <Cell key={`cell-compiler-${index}`} fill={COLORS.default_compiler} />
+              ) : null
+            )}
           </Bar>
           <Bar dataKey="test_repair_test" name="Test Repair">
-            {chartData.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={entry.model === 'SWE-agent' ? COLORS.swe_agent : COLORS.default_test} />
-            ))}
+            {chartData.map((entry, index) =>
+              // Render the bar only if the model is NOT 'SWE-agent'
+              entry.model !== SWE_AGENT ? (
+                <Cell key={`cell-test-${index}`} fill={COLORS.default_test} />
+              ) : null
+            )}
           </Bar>
         </BarChart>
       </ResponsiveContainer>
