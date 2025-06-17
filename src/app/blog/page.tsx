@@ -32,7 +32,7 @@ export default function Blog() {
         </h2>
         <div className="space-y-6">
           <p className="leading-normal">
-            The goal of C-to-Rust translation extends beyond mere functional equivalence; it involves a fundamental shift from C&apos;s non-memory-safe semantics to the memory-safe, idiomatic patterns of Rust.  While Rust supports `unsafe` code, the primary benefit of migration is to produce code that leverages Rust &apos;s compile-time safety guarantees, which can eliminate entire classes of memory bugs.  This requires more than a simple syntactic conversion.
+            The goal of C-to-Rust translation is not just ensuring functional equivalence; it involves a shift from C&apos;s non-memory-safe semantics to the memory-safe, idiomatic patterns of Rust.  While Rust supports `unsafe` code, the primary benefit of migration is to produce code that leverages Rust &apos;s compile-time safety guarantees, which can eliminate entire classes of memory bugs.  This requires more than a simple syntactic conversion.
           </p>
 
           <div className="my-8 flex justify-center">

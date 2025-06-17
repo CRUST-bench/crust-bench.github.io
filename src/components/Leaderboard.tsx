@@ -19,6 +19,7 @@ import {
   Legend,
   ResponsiveContainer,
   CartesianGrid,
+  Cell,
 } from "recharts";
 
 export interface ModelData {
@@ -134,6 +135,18 @@ const TestResultsBarChart: React.FC<TableComponentProps> = ({ data }) => {
     compiler_repair_test: Number(item.compiler_repair_test) || 0,
     test_repair_test: Number(item.test_repair_test) || 0,
   }));
+   const COLORS = {
+    default_pass1: "#8884d8",
+    default_compiler: "#82ca9d",
+    default_test: "#ffc658",
+    swe_agent: "#ff7300", // A distinct color for SWE-agent
+  };
+   const customLegendPayload = [
+    { value: 'Pass@1', type: 'square', id: 'pass1', color: COLORS.default_pass1 },
+    { value: 'Compiler Repair', type: 'square', id: 'compiler', color: COLORS.default_compiler },
+    { value: 'Test Repair', type: 'square', id: 'test', color: COLORS.default_test },
+    { value: 'SWE-agent', type: 'square', id: 'swe_agent', color: COLORS.swe_agent },
+  ];
 
   return (
     <div className="w-full h-96">
@@ -149,10 +162,22 @@ const TestResultsBarChart: React.FC<TableComponentProps> = ({ data }) => {
           />
           <YAxis />
           <Tooltip />
-          <Legend />
-          <Bar dataKey="pass1_test" name="Pass@1" fill="#8884d8" />
-          <Bar dataKey="compiler_repair_test" name="Compiler Repair" fill="#82ca9d" />
-          <Bar dataKey="test_repair_test" name="Test Repair" fill="#ffc658" />
+          <Legend payload={customLegendPayload} />
+          <Bar dataKey="pass1_test" name="Pass@1">
+            {chartData.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={entry.model === 'SWE-agent' ? COLORS.swe_agent : COLORS.default_pass1} />
+            ))}
+          </Bar>
+          <Bar dataKey="compiler_repair_test" name="Compiler Repair">
+            {chartData.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={entry.model === 'SWE-agent' ? COLORS.swe_agent : COLORS.default_compiler} />
+            ))}
+          </Bar>
+          <Bar dataKey="test_repair_test" name="Test Repair">
+            {chartData.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={entry.model === 'SWE-agent' ? COLORS.swe_agent : COLORS.default_test} />
+            ))}
+          </Bar>
         </BarChart>
       </ResponsiveContainer>
     </div>
