@@ -20,9 +20,11 @@ import {
   ResponsiveContainer,
   CartesianGrid,
   Cell,
+  TooltipProps,
 } from "recharts";
 
 import type { Payload } from "recharts/types/component/DefaultLegendContent";
+import type { ValueType, NameType } from "recharts/types/component/DefaultTooltipContent";
 
 export interface ModelData {
   model: string;
