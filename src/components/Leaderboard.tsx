@@ -104,7 +104,10 @@ const TableComponent: React.FC<TableComponentProps> = ({ data }) => (
 );
 const SWE_AGENT = "SWE-agent (Claude-3.7)"
 const getShortName = (fullName: string) => {
-  if (fullName.startsWith("o1-mini")){
+  if (fullName.startsWith("claude-opus-4")){
+    return "claude-4-opus";
+  }
+  else if (fullName.startsWith("o1-mini")){
     return "o1-mini";
   }
   else if (fullName.startsWith("Adapted")){
