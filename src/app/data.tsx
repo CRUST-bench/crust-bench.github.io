@@ -99,7 +99,7 @@ export const scoresData: ModelData[] = [
         compiler_repair_test: 0,
         test_repair_build: 1,
         test_repair_test: 0,
-    }
+    },
     {
         model: "Qwen/QwQ-32B-Preview",
         pass1_build: 1,
