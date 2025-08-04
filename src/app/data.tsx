@@ -83,6 +83,24 @@ export const scoresData: ModelData[] = [
         test_repair_test: 6,
     },
     {
+        model: "Qwen/Qwen-Coder-32B",
+        pass1_build: 0,
+        pass1_test: 0,
+        compiler_repair_build: 0,
+        compiler_repair_test: 0,
+        test_repair_build: 1,
+        test_repair_test: 0,
+    },
+    {
+        model: "DeepSeek/DeepSeek-Coder-33B",
+        pass1_build: 1,
+        pass1_test: 0,
+        compiler_repair_build: 2,
+        compiler_repair_test: 0,
+        test_repair_build: 1,
+        test_repair_test: 0,
+    }
+    {
         model: "Qwen/QwQ-32B-Preview",
         pass1_build: 1,
         pass1_test: 0,
