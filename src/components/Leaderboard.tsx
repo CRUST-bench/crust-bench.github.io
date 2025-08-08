@@ -21,6 +21,7 @@ import {
   CartesianGrid,
   Cell,
   TooltipProps,
+  Label
 } from "recharts";
 
 import type { Payload } from "recharts/types/component/DefaultLegendContent";
@@ -184,13 +185,13 @@ const TestResultsBarChart: React.FC<TableComponentProps> = ({ data }) => {
             if (isSweAgent && entry.dataKey === "pass1_test"){
               return (
                 <p key={`item-${index}`} style={{ color: entry.color }}>
-                  {`SWE Pass Rate : ${entry.value}`}
+                  {`SWE Pass Rate : ${entry.value}%`}
                 </p>
               )
             } 
             return (
               <p key={`item-${index}`} style={{ color: entry.color }}>
-                {`${entry.name} : ${entry.value}`}
+                {`${entry.name} : ${entry.value}%`}
               </p>
             );
           }
@@ -218,7 +219,9 @@ const TestResultsBarChart: React.FC<TableComponentProps> = ({ data }) => {
             interval={0}
             height={100}
           />
-          <YAxis />
+          <YAxis tickFormatter={(v) => `${v}%`} domain={[0, 100]}>
+            <Label value="% pass" angle={-90} position="insideLeft" />
+          </YAxis>
           {/* Use the custom content component for the Tooltip */}
           <Tooltip content={<CustomTooltip />} />
           <Legend payload={customLegendPayload} />
