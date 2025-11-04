@@ -49,6 +49,15 @@ export default function Page() {
                 height="10"
               />
             </Link>
+            <Link
+              href="https://www.youtube.com/watch?v=gKj1QZLDo4I"
+              target="_blank"
+              className="inline-flex items-center custom-link text-sm"
+            >
+              Video
+            </Link>
+            ,{" "}
+            
             </div>
         </div>
         <div className="mb-2">
@@ -56,7 +65,6 @@ export default function Page() {
             <span className="font-bold">CRUST-bench </span> 
             is a benchmark that measures the performance on the C-to-Rust translation task.
           </p>
-
           <p className="leading-normal">
             <br></br>Please see our <a
               href="/blog"
