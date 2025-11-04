@@ -6,11 +6,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faSquareYoutube } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
-import { faVideo } from '@fortawesome/free-solid-svg-icons';
 export default function Page() {
   return (
     <div className="flex flex-col lg:w-[800px] mx-auto p-4">
@@ -58,7 +57,7 @@ export default function Page() {
               Video
               <FontAwesomeIcon
                 className="mx-1"
-                icon={faVideo}
+                icon={faSquareYoutube}
                 width="12"
                 height="12"
               />
