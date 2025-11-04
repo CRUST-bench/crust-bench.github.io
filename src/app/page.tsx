@@ -49,6 +49,7 @@ export default function Page() {
                 height="10"
               />
             </Link>
+            ,{" "}
             <Link
               href="https://www.youtube.com/watch?v=gKj1QZLDo4I"
               target="_blank"
@@ -56,8 +57,6 @@ export default function Page() {
             >
               Video
             </Link>
-            ,{" "}
-            
             </div>
         </div>
         <div className="mb-2">
