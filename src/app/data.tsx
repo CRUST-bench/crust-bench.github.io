@@ -2,7 +2,7 @@ import { ModelData } from "@/components/Leaderboard";
 
 export const scoresData: ModelData[] = [
     {
-       model: "gpt-5 (high)", // Or a more current o3 model
+       model: "gpt-5 (high)", // 
         pass1_build: 48,
         pass1_test: 26,
         compiler_repair_build: 92,

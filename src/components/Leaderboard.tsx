@@ -122,6 +122,9 @@ const getShortName = (fullName: string) => {
       + "-" 
       + fullName.split(/[-_ ]/)[1]; // splits by dash, underscore, or space
   }
+  else if (fullName.startsWith("gpt-5")){
+    return "gpt-5";
+  }
   else if (fullName.startsWith("gpt")){
     return "gpt-4o";
   }
