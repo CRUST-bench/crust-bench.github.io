@@ -2,6 +2,15 @@ import { ModelData } from "@/components/Leaderboard";
 
 export const scoresData: ModelData[] = [
     {
+       model: "gpt-5 (high)", // Or a more current o3 model
+        pass1_build: 48,
+        pass1_test: 26,
+        compiler_repair_build: 92,
+        compiler_repair_test: 43,
+        test_repair_build: 85,
+        test_repair_test: 70, 
+    },
+    {
         model: "claude-opus-4-20250514", // Or a more current o3 model
         pass1_build: 43,
         pass1_test: 22,
