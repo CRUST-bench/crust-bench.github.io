@@ -11,6 +11,24 @@ export const scoresData: ModelData[] = [
         test_repair_test: 70, 
     },
     {
+        model: "gemini-3-pro-preview", 
+        pass1_build: 48,
+        pass1_test: 23,
+        compiler_repair_build: 88,
+        compiler_repair_test: 41,
+        test_repair_build: 83,
+        test_repair_test: 66
+    },
+    {
+        model: "claude-4.5-opus",
+        pass1_build: 47,
+        pass1_test: 26,
+        compiler_repair_build: 61,
+        compiler_repair_test: 32,
+        test_repair_build: 59,
+        test_repair_test: 42
+    },
+    {
         model: "claude-opus-4-20250514", // Or a more current o3 model
         pass1_build: 43,
         pass1_test: 22,
