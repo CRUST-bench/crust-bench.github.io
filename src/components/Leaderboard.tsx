@@ -129,7 +129,11 @@ const getShortName = (fullName: string) => {
     return "gpt-4o";
   }
   else if (fullName.startsWith("gemini")){
-    return "gemini-1.5-pro";
+    return fullName.split(/[-_ ]/)[0] 
+    + "-" 
+    + fullName.split(/[-_ ]/)[1]
+    + "-"
+    + fullName.split(/[-_ ]/)[2]; // splits by dash, underscore, or space
   }
   else if (fullName.startsWith("Qwen")){
     return "QwQ-32B-Preview";
